@@ -64,7 +64,10 @@ def print_student_name_and_id(my_info):
     # TODO: Complete function body per Step 3
     # Print sentence containing name
     # Print sentence containing student ID
-    print(f" I am {my_info['name']} and this is my student id {my_info['Student Id']}.")
+    print(f"My name is {my_info['name']}.\nMy Student ID {my_info['Student Id']}.")
+   
+    
+    print()
 
 def print_pizza_toppings(my_info):  
     """Prints a bullet list of favourite pizza toppings
@@ -95,9 +98,8 @@ def add_pizza_toppings(my_info, toppings):
     # Sort toppings list alphabetically
     for i, toppings_for_pizza in enumerate(my_info['Pizza Toppings']):
         my_info['Pizza Toppings'][i] = toppings_for_pizza.capitalize()
-        
-        my_info['Pizza Toppings'].sort()
-    
+    my_info['Pizza Toppings'].sort()
+    print()
     return add_pizza_toppings
 
 def add_movie(my_info, title, genre):
@@ -111,13 +113,11 @@ def add_movie(my_info, title, genre):
     # TODO: Complete function body per Step 6
     # Create dictionary for new movie and add to movie list
     new_movie = {
-     'Moive title' : title,
-     'Movie genre' : genre
-
-  
-
-    },
+        'title' : title,
+        'genre' : genre
+    }
     my_info['movies'].append(new_movie)
+    print()
     return add_movie
 
 def print_movie_genres(my_info):
@@ -126,10 +126,12 @@ def print_movie_genres(my_info):
     Args:
         my_info (dict): Data structure containing information about me
     """
-    print(f"I like to watch to ")
+
     # TODO: Complete function body per Step 7
-    Names_movie = [movie['genre'] for movie in my_info['movies']]
-    print(', '.join(Names_movie), end='.')
+    print("I like to watch to", end = ' ')
+    
+    for i, movie in enumerate(my_info['movies']):
+        print(movie['genre'], end= ", ")
 
 def print_movie_titles(movie_list):
     """Prints a sentence listing all favourite movie titles
@@ -138,7 +140,10 @@ def print_movie_titles(movie_list):
         movie_list (list): List of favourite movies
     """
     # TODO: Complete function body per Step 8
-    List_of_movies = [movie['title']for movie in movie_list['movies']]
+    print("movies.\n")
+    movie_list = [movie['title']for movie in movie_list]
+    
+    print("Some of my favouraite movies are", end = " ")
     print(', '.join (movie_list),end='.')
 
 if __name__ == '__main__':
